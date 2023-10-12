@@ -1,4 +1,1 @@
-# BinarioProject
-# BinarioProjectBack
-# BinarioProjectBack
 # BinarioProjectBack

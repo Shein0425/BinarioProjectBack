@@ -1,3 +1,10 @@
+// This JSON configuration is used with Babel, a JavaScript compiler.
+// It specifies the use of a single preset, `@babel/preset-env`.
+
+// - "presets": This is an array that holds one or more Babel presets. In this case, there's only one preset listed.
+// - "@babel/preset-env": This is the specific preset used. It tells Babel to apply transformations to the code to ensure it is compatible with the environments you intend to support.
+
+// In short, this configuration is telling Babel to handle code transformations to ensure it works in different environments without specifying those environments explicitly in this configuration. It is a basic configuration to make your JavaScript code more compatible across various platforms and browsers.
 {
     "presets": ["@babel/preset-env"]
 }

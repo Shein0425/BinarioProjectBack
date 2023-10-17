@@ -1,16 +1,14 @@
 import { listen } from "express/lib/application";
 import app from "./app"
-const cors = require('cors');
 
-const main=()=>{
-    app.listen(app.get("port"));
-    console.log(`Port: ${app.get("port")}`);
+/**
+ * A function to start the Express.js server.
+ * It listens on the port specified in the application configuration.
+ */
+const startServer = () => {
+  app.listen(app.get("port"));
+  console.log(`Server is running on port: ${app.get("port")}`);
 };
 
-app.use(cors({
-    origin: 'http://localhost:4200',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  }));
-
-main();
+// Start the server
+startServer();

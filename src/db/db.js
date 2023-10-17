@@ -1,6 +1,7 @@
 import mysql from "promise-mysql";
 import config from "./../config";
 
+// Create a connection pool with the configuration from the 'config' module
 const connect = mysql.createConnection({
     host: config.host,
     database: config.database,
@@ -9,6 +10,8 @@ const connect = mysql.createConnection({
 
 });
 
+
+// Get a connection from the connect
 const getConnection = () => {
     return connect;
 };

@@ -25,14 +25,14 @@ const getUser = async(req, res) => {
 
 const newUser = async(req, res) => {
     try{
-        const { fname, lname, email } = req.body;
-        const user = { fname, lname, email }
+            const { fname, lname, email } = req.body;
+            const user = { fname, lname, email }
         if(fname === undefined || lname === undefined || email === undefined){
             res.status(400).json({ message: "Bad Request. Please fill all fields."});
         };
         const connect = await getConnection();
         await connect.query("INSERT INTO users SET ?", user);
-        res.json({errors: "False", message: "User added successfully!"});
+        res.json({errors: "False", message: "User created successfully!"});
     }
     catch(error){
         res.status(500).json({errors: "True", message: error.message });

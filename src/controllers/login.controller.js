@@ -1,4 +1,5 @@
 import { getConnection } from "./../db/db";
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const login = async (req, res) => {
@@ -17,7 +18,13 @@ const login = async (req, res) => {
                     return res.status(500).json({ errors: "True", message: err.message });
                 }
                 if (passwordMatch) {
-                    res.json({ errors: "False", message: "Login successful" });
+
+                    const token = jwt.sign({
+                        email: email
+                    }, process.env.SECRET_KEY || 'luis123');
+
+
+                    res.json({ errors: "False", token: token });
                 } else {
                     res.json({ errors: "True", message: "Invalid password" });
                 }

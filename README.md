@@ -152,24 +152,30 @@ To set up and run this project, follow these steps:
    ```bash
    npm run start
    ```
-# .env File
-# Database configuration
+
+## Database Configuration
+
+The database configuration can be set in the `.env` file. Make sure to configure the following variables in the `.env` file to match your development environment:
+
+```plaintext
+# .env File - Database configuration
 
 # MySQL host address (e.g., localhost)
-DB_HOST=localhost
+host=localhost
 
 # Name of the MySQL database (e.g., binario_users)
-DB_NAME=binario_users
+db=binario_users
 
 # MySQL user (e.g., root)
-DB_USER=root
+user=root
 
 # MySQL password (leave blank for no password)
-DB_PASSWORD=
+pass=contraseña
 
-# Please upload the database to your MySQL server and configure the variables
+# Note: Please upload the database to your MySQL server and configure the variables
 # in this file to match your development environment.
 
+```
 
 ## Contributing
 

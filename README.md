@@ -1,27 +1,172 @@
-# Proyecto de Prueba Técnica para Binario
+# Node.js and Express Backend for User Management
 
-Este repositorio contiene un proyecto de prueba técnica desarrollado para Binario, una aplicación full-stack con funcionalidad para gestionar usuarios. El proyecto se compone de un backend y un frontend, y se creó como parte de un proceso de evaluación.
+This is a Node.js and Express backend project for managing user data in a MySQL database. It provides a set of API endpoints for creating, retrieving, updating, and deleting user information. Additionally, it includes an authentication mechanism for user login using JSON Web Tokens (JWT).
 
-## Características
+## API Endpoints
 
-- **Backend**: El backend está construido utilizando [tecnología o framework] y proporciona servicios para la gestión de usuarios. Ofrece las siguientes funcionalidades:
-  - [Descripción de las funcionalidades del backend]
+### Get All Users
 
-- **Frontend**: El frontend es una interfaz de usuario diseñada para interactuar con el backend y gestionar los usuarios. Incluye las siguientes características:
-  - [Descripción de las características del frontend]
+- **URL**: `GET /api/users`
+- **Description**: Retrieve all users from the database.
+- **Example Response**:
 
-## Requisitos
+```json
+{
+    "errors": "False",
+    "result": [
+        {
+            "idusers": 3,
+            "fname": "Alice",
+            "lname": "Johnson",
+            "email": "alice.johnson@example.com"
+        },
+        {
+            "idusers": 4,
+            "fname": "Bob",
+            "lname": "Smith",
+            "email": "bob.smith@example.com"
+        }
+    ]
+}
+```
 
-Antes de ejecutar este proyecto, asegúrate de tener instalado lo siguiente:
+### Get a Single User
 
-- [Requisitos del sistema para el backend]
-- [Requisitos del sistema para el frontend]
+- **URL**: `GET /api/users/:iduser`
+- **Description**: Retrieve a single user by their ID.
+- **Example Response**:
 
-## Configuración
+```json
+{
+    "errors": "False",
+    "result": {
+        "idusers": 3,
+        "fname": "Alice",
+        "lname": "Johnson",
+        "email": "alice.johnson@example.com"
+    }
+}
+```
 
-Sigue estos pasos para configurar y ejecutar el proyecto:
+### Add User
 
-1. Clona este repositorio en tu máquina local:
+- **URL**: `POST /api/users`
+- **Description**: Add a new user to the database.
+- **Example Request Body**:
+
+```json
+{
+    "fname": "FirstName",
+    "lname": "LastName",
+    "email": "user@example.com"
+}
+```
+
+### Edit User
+
+- **URL**: `PUT /api/users/:iduser`
+- **Description**: Update an existing user's information by their ID.
+- **Example Request Body**:
+
+```json
+{
+    "fname": "UpdatedFirstName",
+    "lname": "UpdatedLastName",
+    "email": "updateduser@example.com"
+}
+```
+
+### Delete User
+
+- **URL**: `DELETE /api/users/:iduser`
+- **Description**: Delete a user from the database by their ID.
+
+### User Login
+
+- **URL**: `POST /api/login`
+- **Description**: Authenticate a user's login using email and password. Returns a JWT token upon successful authentication.
+- **Example Request Body**:
+
+```json
+{
+    "email": "user@example.com",
+    "password": "password123"
+}
+```
+
+- **Example Responses**:
+
+1. Success:
+
+```json
+{
+    "errors": "False",
+    "token": "your-jwt-token-here"
+}
+```
+
+2. Incorrect Password:
+
+```json
+{
+    "errors": "True",
+    "message": "Invalid password"
+}
+```
+
+3. User Not Found:
+
+```json
+{
+    "errors": "True",
+    "message": "User not found"
+}
+```
+
+## Getting Started
+
+To set up and run this project, follow these steps:
+
+1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/tuusuario/proyecto-binario.git
+   git clone https://github.com/Shein0425/BinarioProjectBack.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd backend-project
+   ```
+
+3. Install the project dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Configure the database connection in a `.env` file.
+
+5. Start the server:
+
+   ```bash
+   npm run start
+   ```
+
+## Contributing
+
+Contributions to this project are welcome! If you'd like to contribute, please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature`.
+3. Make your changes and commit them: `git commit -m 'Add feature'`.
+4. Push your changes to your fork: `git push origin feature/your-feature`.
+5. Create a Pull Request (PR) to merge your changes into the main repository.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+If you have any questions or need further assistance, please contact [luisqui300@gmail.com].

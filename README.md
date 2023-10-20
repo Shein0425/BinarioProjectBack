@@ -85,6 +85,7 @@ This is a Node.js and Express backend project for managing user data in a MySQL 
 
 - **URL**: `POST /api/login`
 - **Description**: Authenticate a user's login using email and password. Returns a JWT token upon successful authentication.
+- **Authentication data**: Email: `luisqui300@gmail.com`  / Password: `Luis123`
 - **Example Request Body**:
 
 ```json
